@@ -47,6 +47,21 @@ var Yatzy = function (d1, d2, d3, d4, d5) {
 
   }
 
+  this.one_pair = function () {
+    var matches = {1:0, 2:0, 3:0, 4:0, 5:0, 6:0};
+    this.dice.forEach(dice => {
+      matches[dice]++;
+    })
+
+    var foundPairOn = 0;
+    Object.keys(matches).reverse().some(match => {
+      if ( matches[match] >= 2 ) {
+        return foundPairOn = match;
+      }
+    })
+    return foundPairOn * 2;
+  }
+
   this.sumOf = function(value) {
     return this.sumArray(this.dice.filter((dice => dice == value)))
   }
@@ -62,19 +77,7 @@ var Yatzy = function (d1, d2, d3, d4, d5) {
 
 
 
-Yatzy.score_pair = function (d1, d2, d3, d4, d5) {
-  var counts = [0, 0, 0, 0, 0, 0, 0, 0, 0];
-  counts[d1 - 1]++;
-  counts[d2 - 1]++;
-  counts[d3 - 1]++;
-  counts[d4 - 1]++;
-  counts[d5 - 1]++;
-  var at;
-  for (at = 0; at != 6; at++)
-    if (counts[6 - at - 1] >= 2)
-      return (6 - at) * 2;
-  return 0;
-}
+
 
 Yatzy.two_pair = function (d1, d2, d3, d4, d5) {
   var counts = [0, 0, 0, 0, 0, 0, 0, 0, 0];
