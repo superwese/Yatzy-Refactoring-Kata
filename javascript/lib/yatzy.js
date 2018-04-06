@@ -37,6 +37,16 @@ var Yatzy = function (d1, d2, d3, d4, d5) {
     return this.sumArray(this.dice);
   }
 
+  this.yatzy = function () {
+    for (var i = 0, k = this.dice.length -1 ; i < k ; i++) {
+      if ( this.dice[i] !== this.dice[i+1] ) {
+        return 0
+      }
+    }
+    return 50;
+
+  }
+
   this.sumOf = function(value) {
     return this.sumArray(this.dice.filter((dice => dice == value)))
   }
@@ -49,18 +59,7 @@ var Yatzy = function (d1, d2, d3, d4, d5) {
 
 
 
-Yatzy.yatzy = function () {
-  var counts = [0, 0, 0, 0, 0, 0, 0, 0];
-  for (var i = 0; i != arguments.length; ++i) {
-    var die = arguments[i];
-    counts[die - 1]++;
-  }
-  for (i = 0; i != 6; i++) {
-    if (counts[i] == 5)
-      return 50;
-  }
-  return 0;
-}
+
 
 
 Yatzy.score_pair = function (d1, d2, d3, d4, d5) {
