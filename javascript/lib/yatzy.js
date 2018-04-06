@@ -7,65 +7,31 @@ var Yatzy = function (d1, d2, d3, d4, d5) {
   this.dice[4] = d5;
 
   this.ones = function (d1, d2, d3, d4, d5) {
-    var sum = 0;
-    if (d1 == 1) sum++;
-    if (d2 == 1) sum++;
-    if (d3 == 1) sum++;
-    if (d4 == 1) sum++;
-    if (d5 == 1)
-      sum++;
+   return this.dice.filter(value => value == 1).reduce((acc, value) => acc + value, 0);
 
-    return sum;
   }
 
   this.twos = function (d1, d2, d3, d4, d5) {
-    var sum = 0;
-    if (d1 == 2) sum += 2;
-    if (d2 == 2) sum += 2;
-    if (d3 == 2) sum += 2;
-    if (d4 == 2) sum += 2;
-    if (d5 == 2) sum += 2;
-    return sum;
+    return this.dice.filter(value => value == 2).reduce((acc, value) => acc + value, 0);
+
   }
 
   this.threes = function (d1, d2, d3, d4, d5) {
-    var s;
-    s = 0;
-    if (d1 == 3) s += 3;
-    if (d2 == 3) s += 3;
-    if (d3 == 3) s += 3;
-    if (d4 == 3) s += 3;
-    if (d5 == 3) s += 3;
-    return s;
+    return this.dice.filter(value => value == 3).reduce((acc, value) => acc + value, 0);
+
   }
   this.fours = function () {
-    var sum = 0;
-    for (var i = 0, k = this.dice.length; i < k; i++) {
-      if (this.dice[i] == 4) {
-        sum += 4;
-      }
-    }
-    return sum;
+    return this.dice.filter(value => value == 4).reduce((acc, value) => acc + value, 0);
+
   }
 
   this.fives = function () {
-    var sum = 0;
-    for (var i = 0, k = this.dice.length; i < k; i++) {
-      if (this.dice[i] == 5) {
-        sum = sum + 5;
-      }
-    }
-    return sum;
+    return this.dice.filter(value => value == 5).reduce((acc, value) => acc + value, 0);
+
   }
 
   this.sixes = function () {
-    sum = 0;
-    for (var i = 0, k = this.dice.length; i < k; i++) {
-      if (this.dice[i] == 6) {
-        sum = sum + 6;
-      }
-    }
-    return sum;
+    return this.dice.filter(value => value == 6).reduce((acc, value) => acc + value, 0);
   }
 }
 
