@@ -83,17 +83,17 @@ describe("Two pair", function() {
 
 describe("Three of a kind", function() {
     it("scores the sum of the three of the kind", function() {
-        assert.equal(9, Yatzy.three_of_a_kind(3,3,3,4,5));
-        assert.equal(15, Yatzy.three_of_a_kind(5,3,5,4,5));
-        assert.equal(9, Yatzy.three_of_a_kind(3,3,3,3,5));
+        assert.equal(9, new Yatzy(3,3,3,4,5).three_of_a_kind());
+        assert.equal(15, new Yatzy(5,3,5,4,5).three_of_a_kind());
+        assert.equal(9, new Yatzy(3,3,3,3,5).three_of_a_kind());
     });
 });
 
 describe("Four of a kind", function() {
     it("scores the sum of the four of the kind", function() {
-        assert.equal(12, Yatzy.four_of_a_kind(3,3,3,3,5));
-        assert.equal(20, Yatzy.four_of_a_kind(5,5,5,4,5));
-        assert.equal(9, Yatzy.three_of_a_kind(3,3,3,3,3));
+        assert.equal(12, new Yatzy(3,3,3,3,5).four_of_a_kind());
+        assert.equal(20, new Yatzy(5,5,5,4,5).four_of_a_kind());
+        assert.equal(12, new Yatzy(3,3,3,3,3).four_of_a_kind());
     });
 });
 

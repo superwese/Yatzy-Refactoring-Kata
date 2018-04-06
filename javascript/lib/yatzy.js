@@ -48,6 +48,18 @@ var Yatzy = function (d1, d2, d3, d4, d5) {
   }
 
   this.one_pair = function () {
+    return this.kind_of(2);
+  }
+
+  this.three_of_a_kind = function () {
+    return this.kind_of(3);
+  }
+
+  this.four_of_a_kind = function (_1, _2, d3, d4, d5) {
+   return this.kind_of(4);
+  }
+
+  this.kind_of = function(what) {
     var matches = {1:0, 2:0, 3:0, 4:0, 5:0, 6:0};
     this.dice.forEach(dice => {
       matches[dice]++;
@@ -55,11 +67,11 @@ var Yatzy = function (d1, d2, d3, d4, d5) {
 
     var foundPairOn = 0;
     Object.keys(matches).reverse().some(match => {
-      if ( matches[match] >= 2 ) {
+      if ( matches[match] >= what ) {
         return foundPairOn = match;
       }
     })
-    return foundPairOn * 2;
+    return foundPairOn * what;
   }
 
   this.sumOf = function(value) {
@@ -99,33 +111,9 @@ Yatzy.two_pair = function (d1, d2, d3, d4, d5) {
     return 0;
 }
 
-Yatzy.four_of_a_kind = function (_1, _2, d3, d4, d5) {
-  var tallies;
-  tallies = [0, 0, 0, 0, 0, 0, 0, 0]
-  tallies[_1 - 1]++;
-  tallies[_2 - 1]++;
-  tallies[d3 - 1]++;
-  tallies[d4 - 1]++;
-  tallies[d5 - 1]++;
-  for (i = 0; i < 6; i++)
-    if (tallies[i] >= 4)
-      return (i + 1) * 4;
-  return 0;
-}
 
-Yatzy.three_of_a_kind = function (d1, d2, d3, d4, d5) {
-  var t;
-  t = [0, 0, 0, 0, 0, 0, 0, 0, 0]
-  t[d1 - 1]++;
-  t[d2 - 1]++;
-  t[d3 - 1]++;
-  t[d4 - 1]++;
-  t[d5 - 1]++;
-  for (i = 0; i < 6; i++)
-    if (t[i] >= 3)
-      return (i + 1) * 3;
-  return 0;
-}
+
+
 
 Yatzy.smallStraight = function (d1, d2, d3, d4, d5) {
   var tallies;
