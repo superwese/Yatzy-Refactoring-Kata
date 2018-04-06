@@ -7,32 +7,36 @@ var Yatzy = function (d1, d2, d3, d4, d5) {
   this.dice[4] = d5;
 
   this.ones = function (d1, d2, d3, d4, d5) {
-   return this.dice.filter(value => value == 1).reduce((acc, value) => acc + value, 0);
+    return this.sumOf(1);
 
   }
 
   this.twos = function (d1, d2, d3, d4, d5) {
-    return this.dice.filter(value => value == 2).reduce((acc, value) => acc + value, 0);
+    return this.sumOf(2);
 
   }
 
   this.threes = function (d1, d2, d3, d4, d5) {
-    return this.dice.filter(value => value == 3).reduce((acc, value) => acc + value, 0);
+    return this.sumOf(3);
 
   }
   this.fours = function () {
-    return this.dice.filter(value => value == 4).reduce((acc, value) => acc + value, 0);
-
+    return this.sumOf(4);
   }
 
   this.fives = function () {
-    return this.dice.filter(value => value == 5).reduce((acc, value) => acc + value, 0);
+    return this.sumOf(5);
 
   }
 
   this.sixes = function () {
-    return this.dice.filter(value => value == 6).reduce((acc, value) => acc + value, 0);
+    return this.sumOf(6);
   }
+
+  this.sumOf = function(value) {
+    return this.dice.filter(a => a == value).reduce((acc, value) => acc + value, 0);
+  }
+
 }
 
 
