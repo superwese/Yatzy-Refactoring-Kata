@@ -19,24 +19,24 @@ describe("Yatzy", function() {
 
 describe("Ones", function() {
     it("score the sum of 1s", function() {
-        assert.equal(1, Yatzy.ones(1,2,3,4,5));
-        assert.equal(2, Yatzy.ones(1,2,1,4,5));
-        assert.equal(0, Yatzy.ones(6,2,2,4,5));
-        assert.equal(4, Yatzy.ones(1,2,1,1,1));
+        assert.equal(1, new Yatzy().ones(1,2,3,4,5));
+        assert.equal(2, new Yatzy().ones(1,2,1,4,5));
+        assert.equal(0, new Yatzy().ones(6,2,2,4,5));
+        assert.equal(4, new Yatzy().ones(1,2,1,1,1));
     });
 });
 
 describe("Twos", function() {
     it("score the sum of 2s", function() {
-        assert.equal(4, Yatzy.twos(1,2,3,2,6));
-        assert.equal(10, Yatzy.twos(2,2,2,2,2));
+        assert.equal(4, new Yatzy().twos(1,2,3,2,6));
+        assert.equal(10, new Yatzy().twos(2,2,2,2,2));
     });
 });
 
 describe("Threes", function() {
     it("score the sum of 3s", function() {
-        assert.equal(6, Yatzy.threes(1,2,3,2,3));
-        assert.equal(12, Yatzy.threes(2,3,3,3,3));
+        assert.equal(6, new Yatzy().threes(1,2,3,2,3));
+        assert.equal(12, new Yatzy().threes(2,3,3,3,3));
     });
 });
 
