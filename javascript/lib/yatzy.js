@@ -33,22 +33,21 @@ var Yatzy = function (d1, d2, d3, d4, d5) {
     return this.sumOf(6);
   }
 
-  this.sumOf = function(value) {
-    return this.dice.filter(a => a == value).reduce((acc, value) => acc + value, 0);
+  this.chance = function () {
+    return this.sumArray(this.dice);
   }
 
+  this.sumOf = function(value) {
+    return this.sumArray(this.dice.filter((dice => dice == value)))
+  }
+
+  this.sumArray = function (array) {
+    return array.reduce((acc, val) => acc + val, 0);
+  }
 }
 
 
-Yatzy.chance = function (d1, d2, d3, d4, d5) {
-  var total = 0;
-  total += d1;
-  total += d2;
-  total += d3;
-  total += d4;
-  total += d5;
-  return total;
-}
+
 
 Yatzy.yatzy = function () {
   var counts = [0, 0, 0, 0, 0, 0, 0, 0];
